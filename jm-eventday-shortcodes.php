@@ -67,7 +67,7 @@ function jm_session_shortcode( $atts, $content = null ) {
 		$html .= "  <p class=\"jm-session-speaker\">" . $a['speaker'] . "</p>";
 	}
 	if ( $content ) {
-		$html .= $content;
+		$html .= "  <div class=\"jm-session-desc\">" . apply_filters( 'shortcode_content', $content ) . "</div>";
 	}
 
 	$html .= "</div>";
@@ -76,3 +76,9 @@ function jm_session_shortcode( $atts, $content = null ) {
 }
 
 add_shortcode( 'jm-session', 'jm_session_shortcode' );
+
+
+/* Apply filters to the shortcode content. */
+		add_filter( 'shortcode_content', 'wpautop' );
+		add_filter( 'shortcode_content', 'shortcode_unautop' );
+		add_filter( 'shortcode_content', 'do_shortcode' );
