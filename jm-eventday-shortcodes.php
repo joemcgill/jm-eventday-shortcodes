@@ -13,25 +13,8 @@
 defined('ABSPATH') or die("No script kiddies please!");
 
 
-/**
- * // SHORTCODE INPUT EXAMPL
- * [jm-session time="9 AM" title="What I Want" speaker="Joe McGIll" speaker_img="http://placehold.it/150"]
- * 	This is a description of the session, you can put HTML or anything into this section.
- * [/jm-session]
- *
- * // SHORTCODE OUTPUT EXAMPLE
- * <div class="jm-session">
- *	<time class="jm-session-time">9 AM</time>
- *	<img class="jm-session-thumb" src="http://placehold.it/150" alt="Joe McGill" />
- *	<h3 class="jm-session-title">What I Want</h3>
- *	<p class="jm-session-speaker">Joe McGill</p>
- *	<div class="jm-session-desc">
- *		// ... HTML GOES HERE
- *	</div>
- * </div>
- *
- */
-
+// add shortcode
+add_shortcode( 'jm-session', 'jm_session_shortcode' );
 
 /**
  * Shortcode Function
@@ -75,12 +58,10 @@ function jm_session_shortcode( $atts, $content = null ) {
 	return $html;
 }
 
-add_shortcode( 'jm-session', 'jm_session_shortcode' );
-
 /* Apply filters to the shortcode content. */
-		add_filter( 'shortcode_content', 'wpautop' );
-		add_filter( 'shortcode_content', 'shortcode_unautop' );
-		add_filter( 'shortcode_content', 'do_shortcode' );
+	add_filter( 'shortcode_content', 'wpautop' );
+	add_filter( 'shortcode_content', 'shortcode_unautop' );
+	add_filter( 'shortcode_content', 'do_shortcode' );
 
 
 // Register style sheet.
