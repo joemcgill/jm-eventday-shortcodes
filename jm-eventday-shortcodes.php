@@ -77,8 +77,20 @@ function jm_session_shortcode( $atts, $content = null ) {
 
 add_shortcode( 'jm-session', 'jm_session_shortcode' );
 
-
 /* Apply filters to the shortcode content. */
 		add_filter( 'shortcode_content', 'wpautop' );
 		add_filter( 'shortcode_content', 'shortcode_unautop' );
 		add_filter( 'shortcode_content', 'do_shortcode' );
+
+
+// Register style sheet.
+add_action( 'wp_enqueue_scripts', 'register_eventday_styles' );
+
+/**
+ * Register style sheet.
+ */
+function register_eventday_styles() {
+	wp_register_style( 'jm-eventday-shortcodes', plugins_url( 'jm-eventday-shortcodes/shortcode-style.css' ) );
+	wp_enqueue_style( 'jm-eventday-shortcodes' );
+}
+
