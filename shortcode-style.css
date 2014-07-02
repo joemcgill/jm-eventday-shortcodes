@@ -14,15 +14,12 @@
     top: -2.914476em;
     left: -1px;
     height: 2.914476em;
-    width: 9.41176em;
-    padding: .294117em 1.17647em;
-    font-size: .85em;
+    width: 14em;
+    padding: .5em 1em;
     font-weight: normal;
     letter-spacing: 4px;
     text-align: center;
-    background-color: #eee;
-    border: 1px solid #ddd;
-    border-bottom: 0;
+    background-color: #dfdfdf;
 }
 
 .jm-session-thumb {
@@ -33,9 +30,11 @@
     border-radius: 50%;
 }
 
-.jm-session-title,
-.jm-session-speaker,
-.jm-session-desc {
+.jm-session-content {
+    margin-left: 1.5em;
+}
+
+.jm-session-thumb + .jm-session-content {
     margin-left: 116px;
 }
 
@@ -54,17 +53,24 @@
 @media (min-width: 800px) {
     .jm-session {
         margin-top: inherit;
-        margin-left: 8em;
+        margin-left: 15.5em;
     }
 
     .jm-session-time {
         height: auto;
-        top: 1.7647em;
-        left: -9.41176em;
-        padding: .58823em;
-        border-right: 0;
-        border-bottom: 1px solid #ddd;
+        top: 0em;
+        left: -15.5em;
         text-align: right;
+    }
 
+    .jm-session-time::after {
+        content: "";
+        position: absolute;
+        right: -1.25em;
+        top: 50%;
+        margin-top: -.75em;
+        display: block;
+        border: .75em solid transparent;
+        border-left-color: #dedede;
     }
 }

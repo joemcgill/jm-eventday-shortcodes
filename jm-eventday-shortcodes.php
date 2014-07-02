@@ -41,18 +41,23 @@ function jm_session_shortcode( $atts, $content = null ) {
 	if ( $a['speaker_img'] ) {
 		$html .= "  <img class=\"jm-session-thumb\" src=\"" . $a['speaker_img'] . "\" />";
 	}
+
+	// begin content wrapper
+	$html .= "	<div class=\"jm-session-content\">";
+
 	// add session title
 	if ( $a['title'] ) {
-		$html .= "  <h3 class=\"jm-session-title\">" . $a['title'] . "</h3>";
+		$html .= "  	<h3 class=\"jm-session-title\">" . $a['title'] . "</h3>";
 	}
 	// add speaker name
 	if ( $a['speaker'] ) {
-		$html .= "  <p class=\"jm-session-speaker\">" . $a['speaker'] . "</p>";
+		$html .= "  	<p class=\"jm-session-speaker\">" . $a['speaker'] . "</p>";
 	}
 	if ( $content ) {
-		$html .= "  <div class=\"jm-session-desc\">" . apply_filters( 'shortcode_content', $content ) . "</div>";
+		$html .= "  	<div class=\"jm-session-desc\">" . apply_filters( 'shortcode_content', $content ) . "</div>";
 	}
 
+	$html .= "	</div>";
 	$html .= "</div>";
 
 	return $html;
