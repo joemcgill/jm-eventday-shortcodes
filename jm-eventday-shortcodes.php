@@ -26,10 +26,10 @@ add_shortcode( 'jm-session', 'jm_session_shortcode' );
  **/
 function jm_session_shortcode( $atts, $content = null ) {
 	$a = array(
-			'time' => ($atts['time']) ? $atts['time'] : null,
-			'title' => ($atts['title']) ? $atts['title'] : null,
-			'speaker' => ($atts['speaker']) ? $atts['speaker'] : null,
-			'speaker_img' => ($atts['speaker_img']) ? $atts['speaker_img'] : null,
+			'time' => ( array_key_exists('time', $atts) ) ? $atts['time'] : null,
+			'title' => ( array_key_exists('title', $atts) ) ? $atts['title'] : null,
+			'speaker' => ( array_key_exists('speaker', $atts) ) ? $atts['speaker'] : null,
+			'speaker_img' => ( array_key_exists('speaker_img', $atts) ) ? $atts['speaker_img'] : null,
 		);
 
 	$html = "<div class=\"jm-session\">";
