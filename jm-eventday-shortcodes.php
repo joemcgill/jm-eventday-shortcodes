@@ -3,7 +3,7 @@
  * Plugin Name: Event Day Shortcodes
  * Plugin URI: http://github.com/joemcgill/jm-eventday-shortcodes
  * Description: Use shortcodes to create an event schedule
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Joe McGill
  * Author URI: http://twitter.com/joemcgill
  * License: GPL2
@@ -79,7 +79,7 @@ add_action( 'wp_enqueue_scripts', 'register_eventday_styles' );
  * Register style sheet.
  */
 function register_eventday_styles() {
-	wp_register_style( 'jm-eventday-shortcodes', plugins_url( 'jm-eventday-shortcodes/shortcode-style.css' ) );
+	wp_register_style( 'jm-eventday-shortcodes', plugins_url( 'shortcode-style.css', __FILE__ ) );
 	wp_enqueue_style( 'jm-eventday-shortcodes' );
 }
 
