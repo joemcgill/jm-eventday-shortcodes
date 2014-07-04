@@ -27,12 +27,26 @@
     width: 100px;
     height: auto;
     margin-right: 1em;
+    margin-bottom: .125em;
     border-radius: 50%;
 }
 
 .jm-session-content {
     margin-left: 1.5em;
 }
+
+/* clearfix the session block (http://nicolasgallagher.com/micro-clearfix-hack/) */
+.jm-session-content:before,
+.jm-session-content:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.jm-session-content:after {
+    clear: both;
+}
+
+/* end clearfix */
 
 .jm-session-thumb + .jm-session-content {
     margin-left: 116px;
@@ -43,11 +57,15 @@
 }
 
 .jm-session-speaker {
-    padding-bottom: .5em;
+    margin-bottom: .5em;
     font-weight: bold;
     text-transform: uppercase;
-    border-bottom: 1px solid #ccc;
+}
 
+.jm-session-desc:not(:first-child) { /* skip the possibility of an event that's description only */
+    margin-top: .5em;
+    padding-top: 1em;
+    border-top: 1px solid #ccc;
 }
 
 @media (min-width: 800px) {

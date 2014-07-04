@@ -3,7 +3,7 @@
  * Plugin Name: Event Day Shortcodes
  * Plugin URI: http://github.com/joemcgill/jm-eventday-shortcodes
  * Description: Use shortcodes to create an event schedule
- * Version: 1.0
+ * Version: 1.0.1
  * Author: Joe McGill
  * Author URI: http://twitter.com/joemcgill
  * License: GPL2
@@ -32,6 +32,8 @@ function jm_session_shortcode( $atts, $content = null ) {
 			'speaker_img' => ( array_key_exists('speaker_img', $atts) ) ? $atts['speaker_img'] : null,
 		);
 
+	$content = apply_filters( 'shortcode_content', $content );
+
 	$html = "<div class=\"jm-session\">";
 	// add time
 	if ( $a['time'] ) {
@@ -53,8 +55,9 @@ function jm_session_shortcode( $atts, $content = null ) {
 	if ( $a['speaker'] ) {
 		$html .= "  	<p class=\"jm-session-speaker\">" . $a['speaker'] . "</p>";
 	}
+
 	if ( $content ) {
-		$html .= "  	<div class=\"jm-session-desc\">" . apply_filters( 'shortcode_content', $content ) . "</div>";
+		$html .= "  	<div class=\"jm-session-desc\">" . $content . "</div>";
 	}
 
 	$html .= "	</div>";
